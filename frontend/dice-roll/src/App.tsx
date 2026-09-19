@@ -20,7 +20,7 @@ function getDiceImage(value: DiceValue): string {
     case 3:
       return three;
     break;
-    case 4: 
+    case 4:
       return four;
     break;
     case 5:
@@ -41,7 +41,7 @@ interface DiceProps {
 }
 
 function Dice({ value }: DiceProps) {
-  return <img src= {getDiceImage(value)} alt = {`Dice showing ${value}`} className='w-70 m-3' />;
+  return <img src= {getDiceImage(value)} alt = {`Dice showing ${value}`} className='w-64 mt-8 rounded-md h-auto' />;
 }
 
 export default function DiceExample() {
@@ -53,9 +53,9 @@ const rollDice = () => {
 }
 
 return (
-  <div>
+  <div className='flex flex-col items-center justify-center gap-4'>
     <Dice value={value} />
-    <button className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 p-2' onClick={rollDice}>Roll</button>
+    <button className='bg-sky-300 hover:bg-sky-400 active:bg-sky-500 p-3 rounded-md cursor-pointer w-20' onClick={rollDice}>Roll</button>
   </div>
   );
 }
