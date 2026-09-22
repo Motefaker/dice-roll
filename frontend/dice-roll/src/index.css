@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-indigo-400;
+  @apply bg-indigo-300;
 }
 
 

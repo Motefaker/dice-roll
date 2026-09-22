@@ -41,13 +41,14 @@ interface DiceProps {
 }
 
 function Dice({ value }: DiceProps) {
-  return <img src= {getDiceImage(value)} alt = {`Dice showing ${value}`} className='w-64 mt-8 rounded-md h-auto' />;
+  return <img src= {getDiceImage(value)} alt = {`Dice showing ${value}`} className='w-64 mt-8 rounded-md shadow-lg h-auto' />;
 }
 
 export default function DiceExample() {
 const [value, setValue] = useState<DiceValue>(1);
-
+const [clickCount, setClickCount] = useState(0);
 const rollDice = () => {
+  setClickCount((prev) => prev + 1);
   const next = (Math.floor(Math.random() * 6) + 1) as DiceValue;
   setValue(next);
 }
@@ -55,7 +56,8 @@ const rollDice = () => {
 return (
   <div className='flex flex-col items-center justify-center gap-4'>
     <Dice value={value} />
-    <button className='bg-sky-300 hover:bg-sky-400 active:bg-sky-500 p-3 rounded-md cursor-pointer w-20' onClick={rollDice}>Roll</button>
+    <button className='bg-sky-300 hover:bg-sky-400 active:bg-sky-500 p-3 rounded-md shadow-lg border-1 border-solid cursor-pointer w-20' onClick={rollDice}>Roll</button>
+    <p>You have rolled {clickCount} times</p>
   </div>
   );
 }
